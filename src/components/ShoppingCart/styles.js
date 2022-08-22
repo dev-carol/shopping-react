@@ -32,6 +32,7 @@ export const Table = styled.table`
 `
 
 export const Button = styled.button`
+
     background-color:#4169E1;
     padding: 10px 10px;
     color: #fff;
@@ -39,7 +40,7 @@ export const Button = styled.button`
     cursor: pointer;
     border-radius: 4px;
 
-    .buttonPrimary{
+    .primary{
         background-color: #5F9EA0;
         color: #fff;
     }

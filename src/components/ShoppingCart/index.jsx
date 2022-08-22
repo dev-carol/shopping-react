@@ -1,15 +1,11 @@
+import { Button } from "../Button";
 import apiMock from "../ShoppingCart/Api/ApiMock.json";
 import ShoppingCartAddress from "./Address/shoppingCartAddress";
+import ShoppingCartConfirm from "./Confirm/shoppingCartConfirm";
 import ShoppingCartProducts from "./Products/shoppingCartProducts";
 
-import {
-  CardShopping,
-  Title,
-  Table,
-  Section,
-  SubTitle,
-  Button,
-} from "./styles";
+import { CardShopping, Title, SubTitle } from "./styles";
+import ShoppingCartTotal from "./Total/shoppingCartTotal";
 
 export default function ShoppingCart() {
   return (
@@ -17,43 +13,13 @@ export default function ShoppingCart() {
       <Title>Sua sacola de compras</Title>
 
       <ShoppingCartProducts />
-      <ShoppingCartAddress />
+      <ShoppingCartAddress customer={apiMock.customer} />
 
-      <Section>
-        <SubTitle>Total</SubTitle>
-        <Table>
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th width="200px">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Produtos</td>
-              <td>
-                {Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(0)}
-              </td>
-            </tr>
-            <tr>
-              <td>Frete</td>
-              <td>
-                {Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(apiMock.freightRate)}
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-      </Section>
-      <div>
-        <SubTitle>Finalizar compra</SubTitle>
-        <Button className="buttonPrimary">Confirmar compra</Button>
-      </div>
+      <ShoppingCartTotal
+        productsTotalPrice={0}
+        freightRate={apiMock.freightRate}
+      />
+      <ShoppingCartConfirm />
     </CardShopping>
   );
 }

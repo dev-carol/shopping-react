@@ -1,16 +1,16 @@
-import {Section, SubTitle, Button} from '../styles'
-import apiMock from '../Api/ApiMock.json'
 
-export default function ShoppingCartAddress() {
+import { Button } from "../../Button";
+import { Section, SubTitle } from "../styles";
+
+export default function ShoppingCartAddress({ customer }) {
   return (
     <Section>
       <SubTitle>Seu endereço de entrega</SubTitle>
       <p>
-        {apiMock.customer.streetName}, {apiMock.customer.streetNumber},{" "}
-        {apiMock.customer.neighboorhood}, {apiMock.customer.city} -{" "}
-        {apiMock.customer.state}
+        {customer.streetName}, {customer.streetNumber}, {customer.neighboorhood}
+        , {customer.city} - {customer.state}
       </p>
-      <Button>Alterar endereço de entrega</Button>
+      <Button style={{background:'green'}}>Alterar endereço de entrega</Button>
     </Section>
   );
 }

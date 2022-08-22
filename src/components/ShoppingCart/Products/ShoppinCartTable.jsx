@@ -1,5 +1,5 @@
-import { Section } from "../styles";
-import { TableContainer } from "../Table/Table";
+import { TableContainer } from "../../Table";
+import { Section } from "../../ShoppingCart/styles";
 
 export default function ShoppingCartTable({ data }) {
 
