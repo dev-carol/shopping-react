@@ -1,6 +1,6 @@
 import { Table } from "../ShoppingCart/styles";
 
-export function TableContainer({ headers, data, renderItem }) {
+export function TableContainer({ headers, data, renderItem, footers }) {
   return (
     <Table>
       <thead>
@@ -14,10 +14,20 @@ export function TableContainer({ headers, data, renderItem }) {
         {data.map((item, index) => (
           <tr key={index}>
             {headers.map((header, headerIndex) => (
-              <td key={headerIndex}>{renderItem(item, header.key)}</td>
+              <td key={headerIndex}>{renderItem(item, header.key, index)}</td>
             ))}
           </tr>
         ))}
+        {footers && (
+          <tfoot>
+            {footers.map((footer, index) => (
+              <tr key={index}>
+                <th>{footer.label}</th>
+                <th>{footer.value}</th>
+              </tr>
+            ))}
+          </tfoot>
+        )}
       </tbody>
     </Table>
   );

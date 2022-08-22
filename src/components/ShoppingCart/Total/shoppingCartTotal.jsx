@@ -1,7 +1,10 @@
 import { TableContainer } from "../../Table";
 import { Section, SubTitle } from "../styles";
 
-export default function ShoppingCartTotal({freightRate = 0 , productsTotalPrice = 0}) {
+export default function ShoppingCartTotal({
+  freightRate = 0,
+  productsTotalPrice = 0,
+}) {
   function handleRenderItem(item, key) {
     switch (key) {
       case "subTotal":
@@ -35,7 +38,16 @@ export default function ShoppingCartTotal({freightRate = 0 , productsTotalPrice 
           },
           {
             key: "subTotal",
-            label: "SubTotal",
+            label: "Preço",
+          },
+        ]}
+        footers={[
+          {
+            label: "Resultado Final: ",
+            value: Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(productsTotalPrice + freightRate),
           },
         ]}
         renderItem={handleRenderItem}

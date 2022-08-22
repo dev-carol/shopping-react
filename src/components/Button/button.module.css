@@ -1,0 +1,25 @@
+.button {
+  background-color: #4169e1;
+  padding: 10px 10px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buttonPrimary {
+  background-color: #5f9ea0;
+  color: #fff;
+}
+
+.deleteSmallButton{
+  padding: 5px 10px;
+  background-color: #DB7093;
+  color: #fff;
+}
+
+.smallButtonAction{
+  padding: 5px 10px;
+  background-color: #4169e1;
+  color: #fff;
+}

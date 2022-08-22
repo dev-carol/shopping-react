@@ -1,13 +1,15 @@
 import { Section, SubTitle } from "../styles";
-import apiMock from "../Api/ApiMock.json";
+
 import ShoppingCartTable from "./ShoppinCartTable";
 
-export default function ShoppingCartProducts() {
+export default function ShoppingCartProducts({products, onDelete, onChangeQuantity}) {
   return (
     <Section>
       <SubTitle>Produtos</SubTitle>
       <ShoppingCartTable
-        data={apiMock.products}
+        data={products}
+        onDelete={onDelete}
+        onChangeQuantity={onChangeQuantity}
       />
     </Section>
   );
